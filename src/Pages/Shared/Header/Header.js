@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
@@ -12,16 +14,22 @@ const Header = () => {
       return data;
     },
   });
+
+  //logOut a user
+
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((e) => console.log(e));
+  };
   return (
     <div className="w-3/4 mx-auto flex justify-around items-center">
       <div className="w-64 border border-green-600 py-3 px-8 my-4">
         <div className="dropdown ">
-          <div className="flex  items-center">
+          <label tabIndex={0} className=" text-xl font-bold flex  items-center">
             <FaBars className="mr-4"></FaBars>
-            <label tabIndex={0} className=" text-xl font-bold ">
-              Categories
-            </label>
-          </div>
+            <p> Categories</p>
+          </label>
           <ul
             tabIndex={0}
             className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-64 -ml-16 mt-4"
@@ -31,6 +39,7 @@ const Header = () => {
                 <Link
                   key={category._id}
                   className="text-xl font-bold text-green-600 my-4 "
+                  to={`/categories/${category._id}`}
                 >
                   {category.CategoryName}
                 </Link>
@@ -50,8 +59,27 @@ const Header = () => {
       </div>
 
       <div>
-        <p className="text-green-600 text-xl font-bold italic">Login /</p>
-        <p className="text-green-500 text-xl font-bold italic">Register</p>
+        {user && user?.email ? (
+          <>
+            <button onClick={handleLogOut}>
+              <Link className="text-green-500 text-xl font-bold italic">
+                Logout
+              </Link>
+            </button>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="text-green-600 text-xl font-bold italic"
+            >
+              Login /
+            </Link>
+            <Link className="text-green-500 text-xl font-bold italic">
+              Register
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
