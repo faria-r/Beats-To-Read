@@ -41,9 +41,9 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
   //logout a user
-  const logout = ()=>{
+  const logout = () => {
     return signOut(auth);
-  }
+  };
 
   const authInfo = {
     user,
@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
     login,
     createUser,
     loginWithGoogle,
-    logout
+    logout,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

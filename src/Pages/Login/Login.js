@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
-  const { loginWithGoogle } = useContext(AuthContext);
+  const { loginWithGoogle,login} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const googleAuthProvider = new GoogleAuthProvider();
@@ -19,6 +19,14 @@ const Login = () => {
   //login with email ,password
   const handelLogin = (data) => {
     console.log(data);
+    const email = data.email;
+    const password = data.password;
+    login(email,password)
+    .then(result =>{
+        const user = result.user;
+
+    })
+    .catch(e => console.log(e))
   };
   //login with google
   const handleLoginWithGoogle = () => {
@@ -32,7 +40,7 @@ const Login = () => {
   };
 
   return (
-    <div className="h-[800px]  flex justify-center items-center">
+    <div className="h-[800px]  flex justify-center mt-16">
       <div className="w-96 p-7">
         <h2 className="text-xl text-center">Login</h2>
         <form onSubmit={handleSubmit(handelLogin)}>
@@ -71,7 +79,7 @@ const Login = () => {
         </form>
         <p>
           Do not have an account?{" "}
-          <Link className="text-primary" to="/signup">
+          <Link className="text-primary" to="/register">
             Create an Account
           </Link>
         </p>

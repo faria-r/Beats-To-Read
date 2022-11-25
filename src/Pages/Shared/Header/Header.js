@@ -39,9 +39,9 @@ const Header = () => {
                 <Link
                   key={category._id}
                   className="text-xl font-bold text-green-600 my-4 "
-                  to={`/categories/${category._id}`}
+                  to={`/categories/${category.CategoryName}`}
                 >
-                  {category.CategoryName}
+                  {category.CategoryName} Books
                 </Link>
               ))}
           </ul>
