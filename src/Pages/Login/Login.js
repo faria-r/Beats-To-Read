@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
-  const { loginWithGoogle,login} = useContext(AuthContext);
+  const { loginWithGoogle, login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const googleAuthProvider = new GoogleAuthProvider();
@@ -21,19 +21,19 @@ const Login = () => {
     console.log(data);
     const email = data.email;
     const password = data.password;
-    login(email,password)
-    .then(result =>{
+    login(email, password)
+      .then((result) => {
         const user = result.user;
-
-    })
-    .catch(e => console.log(e))
+        console.log(user);
+      })
+      .catch((e) => console.log(e));
   };
   //login with google
   const handleLoginWithGoogle = () => {
     loginWithGoogle(googleAuthProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user)
+        console.log(user);
         navigate("/");
       })
       .catch((e) => console.error(e));
@@ -41,7 +41,7 @@ const Login = () => {
 
   return (
     <div className="h-[800px]  flex justify-center mt-16">
-      <div className="w-96 p-7">
+      <div className="w-96 h-[500px] py-3 border rounded-2xl bg-green-300  px-7">
         <h2 className="text-xl text-center">Login</h2>
         <form onSubmit={handleSubmit(handelLogin)}>
           <div className="form-control w-full max-w-xs">
