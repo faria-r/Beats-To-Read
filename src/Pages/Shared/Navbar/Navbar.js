@@ -38,9 +38,11 @@ const Navbar = () => {
               </Link>
             </ul>
           </div>
-          <Link className=" normal-case text-4xl text-green-600 font-bold">
+         <div className="w-64">
+         <Link className=" normal-case text-4xl text-green-600 font-bold">
             Beats To Read
           </Link>
+         </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -52,9 +54,7 @@ const Navbar = () => {
             </Link>
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Get started</a>
-        </div>
+      
       </div>
       <div></div>
     </div>

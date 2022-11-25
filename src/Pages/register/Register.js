@@ -16,9 +16,6 @@ const Register = () => {
     navigate("/");
   }
   const handelregister = (data) => {
-    const role = data.role;
-    console.log(data.name);
-    console.log(role);
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
@@ -31,12 +28,6 @@ const Register = () => {
         updateUserProfile(userInfo)
           .then(() => {
             storeUsers(data.name, data.email, data.role);
-            console.log(
-              data.name,
-              data.email,
-              data.role,
-              "saved user correctly"
-            );
           })
           .catch((e) => console.log(e));
       })
@@ -45,7 +36,7 @@ const Register = () => {
 
   const storeUsers = (name, email, role) => {
     const user = { name, email, role };
-    console.log("yes", user);
+
     fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
@@ -55,7 +46,6 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "user stored");
         setCreatedUserEmail(email);
       });
   };

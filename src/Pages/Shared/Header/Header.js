@@ -47,7 +47,7 @@ const Header = () => {
           </ul>
         </div>
       </div>
-      <div className="flex items-center">
+      <div className=" hidden lg:flex items-center">
         <input
           type="text"
           placeholder="Type here"
@@ -61,11 +61,16 @@ const Header = () => {
       <div>
         {user && user?.email ? (
           <>
+            <div className="flex">
             <button onClick={handleLogOut}>
-              <Link className="text-green-500 text-xl font-bold italic">
+              <Link className="text-green-500 ml-2 text-xl font-bold italic">
                 Logout
               </Link>
             </button>
+            <Link className="text-green-500 text-xl ml-4 font-bold italic">
+            Dashboard
+            </Link>
+            </div>
           </>
         ) : (
           <>

@@ -1,12 +1,19 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import useToken from "../../customHooks/Token/useToken";
 
 const Login = () => {
   const { loginWithGoogle, login } = useContext(AuthContext);
+  const [currentUserEmail, setCurrentUserEmail] = useState("");
+  const [token, setToken] = useToken(currentUserEmail);
   const navigate = useNavigate();
+
+  if (token) {
+    navigate("/");
+  }
 
   const googleAuthProvider = new GoogleAuthProvider();
 
@@ -24,6 +31,7 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const user = result.user;
+        setCurrentUserEmail(email);
         console.log(user);
       })
       .catch((e) => console.log(e));
@@ -34,11 +42,26 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate("/");
+        const newuser = {
+          name: user?.displayName,
+          email: user?.email,
+          role: "Buyer",
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newuser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data, "user stored");
+            setCurrentUserEmail(user?.email)
+          });
       })
       .catch((e) => console.error(e));
   };
-
   return (
     <div className="h-[800px]  flex justify-center mt-16">
       <div className="w-96 h-[500px] py-3 border rounded-2xl bg-green-300  px-7">
