@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../../Context/AuthProvider";
 
 const Addproduct = () => {
-    const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const Swal = require("sweetalert2");
@@ -39,22 +39,22 @@ const Addproduct = () => {
             useDuration: data.duration,
             seller: data.seller,
             image: imgData.data.url,
-            email:data.email,
+            email: data.email,
             date: data.date,
           };
           console.log(productData);
-          fetch('http://localhost:5000/books',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
+          fetch("http://localhost:5000/books", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
             },
-            body:JSON.stringify(productData)
+            body: JSON.stringify(productData),
           })
-          .then(res => res.json())
-          .then(data => {
-            Swal.fire("Congrats!", "Your Product Has Been Added!", "success");
-            navigate('/dashboard/myproduct')
-          })
+            .then((res) => res.json())
+            .then((data) => {
+              Swal.fire("Congrats!", "Your Product Has Been Added!", "success");
+              navigate("/dashboard/myproduct");
+            });
         }
       });
   };
