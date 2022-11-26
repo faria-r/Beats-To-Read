@@ -67,7 +67,7 @@ const Header = () => {
                 Logout
               </Link>
             </button>
-            <Link className="text-green-500 text-xl ml-4 font-bold italic">
+            <Link to='/dashboard' className="text-green-500 text-xl ml-4 font-bold italic">
             Dashboard
             </Link>
             </div>

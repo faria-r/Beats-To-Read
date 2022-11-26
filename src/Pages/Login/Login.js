@@ -31,8 +31,9 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const user = result.user;
-        setCurrentUserEmail(email);
-        console.log(user);
+        console.log(user.email); 
+        setCurrentUserEmail(user?.email)
+       
       })
       .catch((e) => console.log(e));
   };
@@ -98,7 +99,7 @@ const Login = () => {
             value="Login"
             type="submit"
           />
-          <div></div>
+          
         </form>
         <p>
           Do not have an account?{" "}
