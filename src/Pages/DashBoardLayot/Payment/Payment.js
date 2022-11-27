@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
 import CheckOutForm from './CheckOutForm';
@@ -7,7 +7,11 @@ import CheckOutForm from './CheckOutForm';
 const stripePromise = loadStripe(process.env.REACT_APP_stripe_pk);
 const Payment = () => {
     const orderData = useLoaderData();
-    console.log(orderData)
+    const navigation = useNavigation();
+  if(navigation.state === 'loading'){
+    return <progress className="progress w-56"></progress>
+  }
+
     return (
         <div>
             <h3 className='text-xl font-semibold my-4'>Payment for <span className='text-green-700 font-bold text-2xl'>{orderData.bookName}</span></h3>

@@ -11,7 +11,7 @@ const CheckOutForm = ({ orderData }) => {
   console.log(clientSecret);
   const stripe = useStripe();
   const elements = useElements();
-  const { price, customerName, email } = orderData;
+  const { price, customerName, email, _id ,bookName} = orderData;
   const Swal = require("sweetalert2");
 
   useEffect(() => {
@@ -71,9 +71,34 @@ const CheckOutForm = ({ orderData }) => {
       return;
     }
     if (paymentIntent.status === "succeeded") {
-      setSuccess("Congratulation!");
-      setTransactionId(paymentIntent.id);
-      Swal.fire("Congrats!", "Your Payment is complete!", "success");
+      
+      //save payment information
+
+      const payment = {
+price,
+email,
+transactionId:paymentIntent.id,
+customerName,
+productName:bookName,
+orderId:_id
+      };
+      fetch("http://localhost:5000/payments", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `bearer ${localStorage.getItem("access-token")}`,
+        },
+        body:JSON.stringify(payment)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.insertedId){
+            console.log(data)
+            setSuccess("Congratulation!");
+            setTransactionId(paymentIntent.id);
+            Swal.fire("Congrats!", "Your Payment is complete!", "success");
+        }
+      })
     }
     setIsLoading(false);
     console.log("PAymentIntent", paymentIntent);
@@ -100,7 +125,7 @@ const CheckOutForm = ({ orderData }) => {
         <button
           className="btn btn-sm bg-green-500 mt-6 border-none"
           type="submit"
-          disabled={!stripe || !clientSecret || isLoading} 
+          disabled={!stripe || !clientSecret || isLoading}
         >
           Pay
         </button>
@@ -114,7 +139,7 @@ const CheckOutForm = ({ orderData }) => {
         <div>
           <p className="text-green-600">{success}</p>
           <p className="text-green-600">
-           Your Transaction Id:{" "}
+            Your Transaction Id:{" "}
             <span className=" font-bold ">{transactionId}</span>
           </p>
         </div>
