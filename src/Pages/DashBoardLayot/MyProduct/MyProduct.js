@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";
 import axios from "axios";
-
+import Swal from "sweetalert2";
 const MyProduct = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
+  const Swal = require("sweetalert2");
   const url = `http://localhost:5000/myproducts?email=${user?.email}`;
   const getProducts = () => {
     axios.get(url).then((res) => {
-      console.log(res);
       const myProducts = res.data;
       console.log(myProducts);
       setProducts(myProducts);
@@ -35,7 +35,29 @@ const MyProduct = () => {
         setProducts(reamainingProducts);
       });
   };
+//handle advertise
+const handleAdvertise = (id,image) =>{
+  console.log(id,image);
+  const adsImage = {
+    image:image
+  };
+  fetch('http://localhost:5000/advertise',{
+    method:'POST',
+    headers:{
+      'content-type':'application/json'
+    },
+    body:JSON.stringify(adsImage)
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    if(data.insertedId){
+      Swal.fire("Done!", " Product Has Been Advertised!", "success");
+    }
+    
+  })
 
+}
   return (
     <div>
       <h3>My Products</h3>
@@ -90,7 +112,7 @@ const MyProduct = () => {
                 </td>
                 <th>
                   {!product.sold && (
-                    <button className="btn btn-sm btn-outline btn-green-500 btn-xs">
+                    <button onClick={()=>handleAdvertise(product._id,product.image)} className="btn btn-sm btn-outline btn-green-500 btn-xs">
                       Advertise
                     </button>
                   )}

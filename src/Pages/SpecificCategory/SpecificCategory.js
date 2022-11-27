@@ -6,7 +6,6 @@ import Books from "./Books/Books";
 const SpecificCategory = () => {
   const books = useLoaderData();
   const [availableBook, setAvailableBook] = useState(books);
-  console.log(books);
   return (
     <div>
       <div className="grid grid-cols-1 gap-2 w-3/4 mx-auto">
@@ -16,7 +15,7 @@ const SpecificCategory = () => {
       ))}
     </div>
     <div>
-        {books && books.map ( book => 
+        {availableBook && books && books.map ( book => 
           <BookingModal
             key={book._id}
             book={book}

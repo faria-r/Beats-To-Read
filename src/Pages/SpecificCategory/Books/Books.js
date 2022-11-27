@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../../Context/AuthProvider";
+import useBuyers from "../../../customHooks/useBuyers/useBuyers";
+import useSeller from "../../../customHooks/UseSellers/useSeller";
 import BookingModal from "../../BookingModal/BookingModal";
 
 const Books = ({ book, books,  availableBook,
   setAvailableBook }) => {
-console.log(availableBook,'book')
+    const {user} = useContext(AuthContext)
+    const [isBuyer] = useBuyers(user?.email)
   const {
     name,
     image,
@@ -33,14 +37,11 @@ console.log(availableBook,'book')
             <p>Seller:{seller}</p>
             <p>Location:{location}</p>
           </div>
-          <div className="card-actions justify-end">
-         
-            {/* <a href="#booking-modal" className="btn bg-green-600 border-none">
-             Book Now
-            </a> */}
-            <label onClick = {()=> setAvailableBook(book)} htmlFor="my-modal-3" className="btn">Yay!</label>
-           
-          </div>
+         {
+          isBuyer &&  <div className="card-actions justify-end">
+          <label onClick = {()=> setAvailableBook(book)} htmlFor="my-modal-3" className="btn bg-green-500 border-none">Book Now</label>  
+        </div>
+         }
         </div>
       </div>
       
