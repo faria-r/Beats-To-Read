@@ -9,15 +9,15 @@ const Addproduct = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const Swal = require("sweetalert2");
-  //   const imageHostKey = process.env.REACT_APP_imagebb_APIkey;
-  //   console.log(imageHostKey);
+    const imageHostKey = process.env.REACT_APP_imagebb_APIkey;
+    console.log(imageHostKey);
 
   const handleAdd = (data) => {
     const image = data.image[0];
     console.log(image);
     const formData = new FormData();
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=eb307482693e38cfa81bcdf926507170`;
+    const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
     fetch(url, {
       method: "POST",
       body: formData,
