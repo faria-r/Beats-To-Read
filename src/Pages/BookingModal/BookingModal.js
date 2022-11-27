@@ -5,11 +5,11 @@ import Swal from "sweetalert2";
 const BookingModal = ({ book, availableBook, setAvailableBook }) => {
   const { user } = useContext(AuthContext);
   const { name, resalePrice,image } = book;
+  setAvailableBook(book)
   const Swal = require("sweetalert2");
   const handleSubmit = (event) => {
-    console.log("submitted");
     event.preventDefault();
-    const name = event.target.name.value;
+    const Cname = event.target.name.value;
     const email = event.target.email.value;
     const bookName = event.target.bookName.value;
     const price = event.target.price.value;
@@ -18,7 +18,7 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
     console.log(name, phone, email, bookName, price, location);
 
     const orderData = {
-      customerName: name,
+      customerName: Cname,
       email,
       bookName,
       price,

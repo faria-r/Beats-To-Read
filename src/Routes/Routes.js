@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layouts/Main";
 import Blog from "../Pages/Blog/Blog";
+import BookingModal from "../Pages/BookingModal/BookingModal";
 import AllBuyres from "../Pages/DashBoardLayot/AllBuyers/AllBuyres";
 import AllSeller from "../Pages/DashBoardLayot/AllSeller/AllSeller";
 import Addproduct from "../Pages/DashBoardLayot/DashboardLayout/AddProduct/Addproduct";
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      
     ],
   },
   {

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import BookingModal from "../../BookingModal/BookingModal";
 
-const Books = ({ book, books }) => {
-  const [availableBook, setAvailableBook] = useState(books);
+const Books = ({ book, books,  availableBook,
+  setAvailableBook }) => {
+console.log(availableBook,'book')
   const {
     name,
     image,
+    _id,
     location,
     about,
     resalePrice,
@@ -32,22 +34,15 @@ const Books = ({ book, books }) => {
             <p>Location:{location}</p>
           </div>
           <div className="card-actions justify-end">
+            <button onClick = {()=> setAvailableBook(books)} >
             <a href="#booking-modal" className="btn bg-green-600 border-none">
              Book Now
             </a>
+            </button>
           </div>
         </div>
       </div>
-      <div>
-        {availableBook && (
-          <BookingModal
-            key={book._id}
-            book={book}
-            availableBook={availableBook}
-            setAvailableBook={setAvailableBook}
-          ></BookingModal>
-        )}
-      </div>
+      
     </div>
   );
 };

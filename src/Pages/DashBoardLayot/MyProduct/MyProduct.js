@@ -67,11 +67,18 @@ const MyProduct = () => {
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">Hart Hagerty</div>
+                      <div className="font-bold">{product.name}</div>
                     </div>
                   </div>
                 </td>
-                <td>Available</td>
+                <td>
+                  {product.sold && (
+                    <span className="text-green-500 font-bold">Sold</span>
+                  )}
+                  {!product.sold && (
+                    <span className="text-red-500 font-bold">Unsold</span>
+                  )}
+                </td>
                 <td>$ {product.resalePrice}</td>
                 <td>
                   <button
@@ -82,9 +89,11 @@ const MyProduct = () => {
                   </button>
                 </td>
                 <th>
-                  <button className="btn btn-sm btn-outline btn-green-500 btn-xs">
-                    Advertise
-                  </button>
+                  {!product.sold && (
+                    <button className="btn btn-sm btn-outline btn-green-500 btn-xs">
+                      Advertise
+                    </button>
+                  )}
                 </th>
               </tr>
             ))}
