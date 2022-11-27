@@ -4,10 +4,11 @@ import Swal from "sweetalert2";
 
 const BookingModal = ({ book, availableBook, setAvailableBook }) => {
   const { user } = useContext(AuthContext);
-  const { name, resalePrice,image } = book;
-  setAvailableBook(book)
+  const { name, resalePrice, image } = book;
   const Swal = require("sweetalert2");
+  console.log(availableBook,'availableBook')
   const handleSubmit = (event) => {
+
     event.preventDefault();
     const Cname = event.target.name.value;
     const email = event.target.email.value;
@@ -46,7 +47,9 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
   return (
     <div>
       <div>
-        <div className="modal" id="booking-modal">
+      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+        <div className="modal" id="my-modal-3">
+        <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute left-[790px] top-12 z-10">✕</label>
           <form onSubmit={handleSubmit}>
             <div className="modal-box">
               <h2 className="text-xl text-green-600 text-center">
@@ -87,7 +90,7 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
                     type="text"
                     name="bookName"
                     placeholder="Type here"
-                    defaultValue={name}
+                    value={availableBook.name}
                     readOnly
                     className="input input-bordered w-full max-w-xs"
                   />
@@ -100,7 +103,7 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
                     type="text"
                     name="price"
                     placeholder="Type here"
-                    defaultValue={resalePrice}
+                    defaultValue={availableBook.resalePrice}
                     readOnly
                     className="input input-bordered w-full max-w-xs"
                   />
@@ -113,7 +116,6 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
                     type="text"
                     name="phone"
                     placeholder="Type here"
-                    defaultValue={user?.name}
                     className="input input-bordered w-full max-w-xs"
                   />
                 </div>
@@ -125,7 +127,6 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
                     type="text"
                     name="location"
                     placeholder="Type here"
-                    defaultValue={user?.name}
                     className="input input-bordered w-full max-w-xs"
                   />
                 </div>

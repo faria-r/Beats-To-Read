@@ -34,11 +34,12 @@ console.log(availableBook,'book')
             <p>Location:{location}</p>
           </div>
           <div className="card-actions justify-end">
-            <button onClick = {()=> setAvailableBook(books)} >
-            <a href="#booking-modal" className="btn bg-green-600 border-none">
+         
+            {/* <a href="#booking-modal" className="btn bg-green-600 border-none">
              Book Now
-            </a>
-            </button>
+            </a> */}
+            <label onClick = {()=> setAvailableBook(book)} htmlFor="my-modal-3" className="btn">Yay!</label>
+           
           </div>
         </div>
       </div>
