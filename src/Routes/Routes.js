@@ -7,6 +7,7 @@ import Addproduct from "../Pages/DashBoardLayot/DashboardLayout/AddProduct/Addpr
 import DashboardLayout from "../Pages/DashBoardLayot/DashboardLayout/DashboardLayout";
 import Myorders from "../Pages/DashBoardLayot/DashboardLayout/Myorders/Myorders";
 import MyProduct from "../Pages/DashBoardLayot/MyProduct/MyProduct";
+import Payment from "../Pages/DashBoardLayot/Payment/Payment";
 import DisplayError from "../Pages/DisplayError/DisplayError";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -76,6 +77,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myproduct",
         element: <MyProduct></MyProduct>,
+      },
+      {
+        path: "/dashboard/payment/:id",
+        element: <Payment></Payment>,
+        loader:({params}) => fetch(`http://localhost:5000/order/${params.id}`)
       },
     ],
   },
