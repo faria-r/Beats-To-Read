@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 const BookingModal = ({ book, availableBook, setAvailableBook }) => {
   const { user } = useContext(AuthContext);
-  const { name, resalePrice } = book;
+  const { name, resalePrice,image } = book;
   const Swal = require("sweetalert2");
   const handleSubmit = (event) => {
     console.log("submitted");
@@ -24,6 +24,7 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
       price,
       phone,
       location,
+      image
     };
 
     fetch("http://localhost:5000/orders", {
@@ -51,7 +52,6 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
               <h2 className="text-xl text-green-600 text-center">
                 Give Your Information and Book Now!
               </h2>
-
               <div className="w-[300px]  mx-auto">
                 <div className="form-control my-2 w-full max-w-xs">
                   <label className="label">
@@ -61,7 +61,7 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
                     type="text"
                     placeholder="Type here"
                     name="name"
-                    defaultValue={user?.name}
+                    defaultValue={user?.displayName}
                     readOnly
                     className="input input-bordered w-full max-w-xs"
                   />

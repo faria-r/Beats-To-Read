@@ -33,13 +33,13 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              <Link to="/" className=" text-green-600 font-semibold text-xl">
+              <Link to="/blog" className=" text-green-600 font-semibold text-xl">
                 Blog
               </Link>
             </ul>
           </div>
          <div className="w-64">
-         <Link className=" normal-case text-4xl text-green-600 font-bold">
+         <Link className=" normal-case text-2xl lg:text-4xl text-green-600 font-bold">
             Beats To Read
           </Link>
          </div>
@@ -49,7 +49,7 @@ const Navbar = () => {
             <Link to="/" className="mr-4 text-green-600 font-semibold text-xl">
               Home
             </Link>
-            <Link to="/" className="text-green-600 font-semibold text-xl">
+            <Link to="/blog" className="text-green-600 font-semibold text-xl">
               Blog
             </Link>
           </ul>

@@ -33,7 +33,7 @@ const Books = ({ book, books }) => {
           </div>
           <div className="card-actions justify-end">
             <a href="#booking-modal" className="btn bg-green-600 border-none">
-              open modal
+             Book Now
             </a>
           </div>
         </div>

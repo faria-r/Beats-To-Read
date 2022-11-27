@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layouts/Main";
+import Blog from "../Pages/Blog/Blog";
 import AllBuyres from "../Pages/DashBoardLayot/AllBuyers/AllBuyres";
 import AllSeller from "../Pages/DashBoardLayot/AllSeller/AllSeller";
 import Addproduct from "../Pages/DashBoardLayot/DashboardLayout/AddProduct/Addproduct";
 import DashboardLayout from "../Pages/DashBoardLayot/DashboardLayout/DashboardLayout";
 import Myorders from "../Pages/DashBoardLayot/DashboardLayout/Myorders/Myorders";
 import MyProduct from "../Pages/DashBoardLayot/MyProduct/MyProduct";
+import DisplayError from "../Pages/DisplayError/DisplayError";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/register/Register";
@@ -17,10 +19,15 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<DisplayError></DisplayError>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/categories/:name",

@@ -245,8 +245,8 @@ const Addproduct = () => {
             </div>
           </div>
           <input
-            className="btn bg-green-600 my-2 w-full text-white"
-            value="Login"
+            className="btn bg-green-600 my-2 w-64 my-3 text-white"
+            value="Add"
             type="submit"
           />
         </form>
