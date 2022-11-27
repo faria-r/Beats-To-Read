@@ -33,6 +33,22 @@ const url = 'http://localhost:5000/sellers'
             setSellers(remaining)
         }
        })
+    };
+    //verify seller
+    const handleVerify = (id) => {
+        console.log(id)
+        const userId={id};
+        fetch(`http://localhost:5000/verify/${id}`,{
+            method:'PUT',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(userId)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
     }
     return (
         <div>
@@ -56,7 +72,7 @@ const url = 'http://localhost:5000/sellers'
                 <th>{i+1}</th>
                 <td>{seller.name}</td>
                 <td>{seller.email}</td>
-                <td><button className='btn btn-sm btn-outline'>Verify</button></td>
+                <td><button onClick={() => handleVerify(seller._id)} className='btn btn-sm btn-outline'>Verify</button></td>
                 <td><button onClick={()=>handleDelete(seller._id)} className='btn btn-sm btn-outline btn-error'>X</button></td>
               </tr>)
         }  
