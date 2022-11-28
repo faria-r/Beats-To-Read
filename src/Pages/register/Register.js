@@ -13,7 +13,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   if (token) {
-    navigate("/");
+    navigate("/login");
   }
   const handelregister = (data) => {
     createUser(data.email, data.password)
