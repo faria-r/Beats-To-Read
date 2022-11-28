@@ -7,7 +7,11 @@ const [buyers,setBuyers]  =useState([])
 
 const url = 'https://assignment-twelve-server-psi.vercel.app/buyers'
     const getBuyers = () =>{
-        axios.get(url)
+        axios.get(url,{
+            headers:{
+                authorization: `bearer ${localStorage.getItem('access-token')}`
+            }
+        })
         .then(res =>{
             const AllBuyer= res.data;
             setBuyers(AllBuyer)
@@ -36,6 +40,7 @@ const url = 'https://assignment-twelve-server-psi.vercel.app/buyers'
     return (
         <div>
             <div className="overflow-x-auto">
+                <h2 className=' text-2xl my-8'>Buyers</h2>
   <table className="table table-zebra w-full">
     
     <thead>

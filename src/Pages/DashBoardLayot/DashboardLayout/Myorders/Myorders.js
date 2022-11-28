@@ -16,7 +16,7 @@ const {data: orders = [] } = useQuery({
 })
 
     return (
-        <div>
+        <div className='lg:w-3/4 lg:mx-auto my-8 sm:mx-4'>
         <h3 className='text-2xl font-semibold'>My Orders</h3>
         <div className="overflow-x-auto w-full">
           <table className="table w-full">

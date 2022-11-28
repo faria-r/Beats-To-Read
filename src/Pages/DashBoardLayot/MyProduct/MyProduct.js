@@ -61,7 +61,7 @@ const handleAdvertise = (id,image,name) =>{
 }
   return (
     <div>
-      <h3>My Products</h3>
+      <h3 className="text-2xl text-white my-6">My Products</h3>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>

@@ -41,6 +41,7 @@ const AllSeller = () => {
       method: "PUT",
       headers: {
         "content-type": "application/json",
+        authorization:`bearer ${localStorage.getItem('access-token')}`
       },
       body: JSON.stringify(userId),
     })
@@ -67,6 +68,7 @@ const AllSeller = () => {
   return (
     <div>
       <div className="overflow-x-auto">
+      <h2 className=' text-2xl my-8'>Sellers</h2>
         <table className="table table-zebra w-full">
           <thead>
             <tr>

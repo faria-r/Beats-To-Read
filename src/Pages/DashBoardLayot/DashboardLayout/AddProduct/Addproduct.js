@@ -60,8 +60,8 @@ const Addproduct = () => {
   };
 
   return (
-    <div className="h-auto w-[700px] shadow-2xl p-5 mx-auto  flex justify-center mt-16">
-      <div className="w-[650px] mx-auto h-[650px] py-3 border rounded-2xl bg-green-300  px-7">
+    <div className="h-auto lg:w-[700px] shadow-2xl p-5 mx-auto  flex justify-center mt-16">
+      <div className="lg:w-[650px] mx-auto lg:h-[650px] py-3 border rounded-2xl bg-green-300  px-7">
         <h3 className="text-green-800 font-semibold text-2xl my-3">
           Add a product
         </h3>
