@@ -80,7 +80,7 @@ const Header = () => {
             >
               Login /
             </Link>
-            <Link className="text-green-500 text-xl font-bold italic">
+            <Link to='/register' className="text-green-500 text-xl font-bold italic">
               Register
             </Link>
           </>

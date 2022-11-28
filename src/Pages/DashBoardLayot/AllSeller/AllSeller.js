@@ -1,87 +1,124 @@
 // import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import {useState,useEffect }from 'react'
-import axios from 'axios'
+import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { FaRegCheckCircle } from "react-icons/fa";
 const AllSeller = () => {
+  const [sellers, setSellers] = useState([]);
 
-const [sellers,setSellers]  =useState([])
+  const url = "http://localhost:5000/sellers";
+  const getSellers = () => {
+    axios.get(url).then((res) => {
+      const AllSeller = res.data;
+      setSellers(AllSeller);
+    });
+  };
+  useEffect(() => {
+    getSellers();
+  }, []);
 
-const url = 'http://localhost:5000/sellers'
-    const getSellers = () =>{
-        axios.get(url)
-        .then(res =>{
-            const AllSeller= res.data;
-            setSellers(AllSeller)
-        })
-    }
-    useEffect(()=>{
-        getSellers();
-    },[]);
-
-    const handleDelete = (id) =>{
-       fetch(`http://localhost:5000/users/${id}`,{
-        method:'DELETE',
-        headers:{
-            'content-type':'application/json'
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/users/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data) {
+          const remaining = sellers.filter((seller) => seller._id !== id);
+          setSellers(remaining);
         }
-       })
-       .then(res => res.json())
-       .then(data =>{
-        console.log(data)
-        if(data){
-            const remaining = sellers.filter(seller => seller._id !== id)
-            setSellers(remaining)
-        }
-       })
-    };
-    //verify seller
-    const handleVerify = (id) => {
-        console.log(id)
-        const userId={id};
-        fetch(`http://localhost:5000/verify/${id}`,{
+      });
+  };
+  //verify seller
+  const handleVerify = (id,email) => {
+    console.log(id);
+    const userId = { id,email };
+    fetch(`http://localhost:5000/verify/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userId),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+            // const remainingUnverified = sellers.filter((seller) => seller._id !== id);
+          setSellers(sellers);
+          fetch(`http://localhost:5000/books/${email}`,{
             method:'PUT',
             headers:{
-                'content-type':'application/json'
+              'content-type':'application/json'
             },
             body:JSON.stringify(userId)
-        })
-        .then(res => res.json())
-        .then(data => {
+          })
+          .then(res => res.json())
+          .then(data => {
             console.log(data)
-        })
-    }
-    return (
-        <div>
-            <div className="overflow-x-auto">
-  <table className="table table-zebra w-full">
-    
-    <thead>
-      <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Verify</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>  
-        {
-            sellers.map((seller,i) => <tr
-            key={seller._id}
-            >
-                <th>{i+1}</th>
+          })
+        }
+      });
+  };
+  return (
+    <div>
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-full">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Verify</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sellers.map((seller, i) => (
+              <tr key={seller._id}>
+                <th>{i + 1}</th>
                 <td>{seller.name}</td>
                 <td>{seller.email}</td>
-                <td><button onClick={() => handleVerify(seller._id)} className='btn btn-sm btn-outline'>Verify</button></td>
-                <td><button onClick={()=>handleDelete(seller._id)} className='btn btn-sm btn-outline btn-error'>X</button></td>
-              </tr>)
-        }  
-      
-    </tbody>
-  </table>
-</div>
-        </div>
-    );
+                <td>
+                  {seller.verified ? (
+                    <div className="flex  items-center">
+                      <button
+                        className="btn bg-green-400 btn-sm btn-outline border-none"
+                        disabled
+                      >
+                        Verified 
+                      </button> <FaRegCheckCircle className="text-blue-500 ml-2 text-xl font-bold"></FaRegCheckCircle>
+                    </div>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => handleVerify(seller._id,seller.email)}
+                        className="btn btn-sm btn-outline"
+                      >
+                        Verify
+                      </button>
+                    </>
+                  )}
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleDelete(seller._id)}
+                    className="btn btn-sm btn-outline btn-error"
+                  >
+                    X
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default AllSeller;

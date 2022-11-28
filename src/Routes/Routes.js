@@ -16,12 +16,13 @@ import Register from "../Pages/register/Register";
 import SpecificCategory from "../Pages/SpecificCategory/SpecificCategory";
 import AdminRoute from "./AdminRoutes/AdminRoutes";
 import Privateroutes from "./PrivateRoutes/Privateroutes";
+import SellerRoutes from "./SellerRoutes/SellerRoutes";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement:<DisplayError></DisplayError>,
+    errorElement: <DisplayError></DisplayError>,
     children: [
       {
         path: "/",
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/categories/:name",
-        element: <Privateroutes><SpecificCategory></SpecificCategory></Privateroutes>,
+        element: (
+          <Privateroutes>
+            <SpecificCategory></SpecificCategory>
+          </Privateroutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/categories/${params.name}`),
       },
@@ -45,7 +50,6 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
-      
     ],
   },
   {
@@ -74,16 +78,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/addproduct",
-        element: <Addproduct></Addproduct>,
+        element: (
+          <SellerRoutes>
+            <Addproduct></Addproduct>
+          </SellerRoutes>
+        ),
       },
       {
         path: "/dashboard/myproduct",
-        element: <MyProduct></MyProduct>,
+        element: (
+          <SellerRoutes>
+            <MyProduct></MyProduct>
+          </SellerRoutes>
+        ),
       },
       {
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
-        loader:({params}) => fetch(`http://localhost:5000/order/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/order/${params.id}`),
       },
     ],
   },

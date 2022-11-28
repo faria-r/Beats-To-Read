@@ -36,10 +36,11 @@ const MyProduct = () => {
       });
   };
 //handle advertise
-const handleAdvertise = (id,image) =>{
-  console.log(id,image);
+const handleAdvertise = (id,image,name) =>{
+  console.log(id,image,name);
   const adsImage = {
-    image:image
+    image:image,
+    name,
   };
   fetch('http://localhost:5000/advertise',{
     method:'POST',
@@ -112,7 +113,7 @@ const handleAdvertise = (id,image) =>{
                 </td>
                 <th>
                   {!product.sold && (
-                    <button onClick={()=>handleAdvertise(product._id,product.image)} className="btn btn-sm btn-outline btn-green-500 btn-xs">
+                    <button onClick={()=>handleAdvertise(product._id,product.image,product.name)} className="btn btn-sm btn-outline btn-green-500 btn-xs">
                       Advertise
                     </button>
                   )}

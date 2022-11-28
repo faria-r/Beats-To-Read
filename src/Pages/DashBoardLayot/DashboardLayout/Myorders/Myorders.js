@@ -15,25 +15,6 @@ const {data: orders = [] } = useQuery({
     }
 })
 
-
-    // const handleDelete = (id) => {
-    //   console.log(id, "clicked");
-    //   fetch(`http://localhost:5000/myproducts/${id}`, {
-    //     method: "DELETE",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //       const reamainingProducts = products.filter(
-    //         (product) => product._id !== id
-    //       );
-    //       setProducts(reamainingProducts);
-    //     });
-    // };
-
     return (
         <div>
         <h3 className='text-2xl font-semibold'>My Orders</h3>

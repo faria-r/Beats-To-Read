@@ -1,13 +1,11 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";
 import useBuyers from "../../../customHooks/useBuyers/useBuyers";
-import useSeller from "../../../customHooks/UseSellers/useSeller";
-import BookingModal from "../../BookingModal/BookingModal";
+import { FaRegCheckCircle } from "react-icons/fa";
 
-const Books = ({ book, books,  availableBook,
-  setAvailableBook }) => {
-    const {user} = useContext(AuthContext)
-    const [isBuyer] = useBuyers(user?.email)
+const Books = ({ book, books, availableBook, setAvailableBook }) => {
+  const { user } = useContext(AuthContext);
+  const [isBuyer] = useBuyers(user?.email);
   const {
     name,
     image,
@@ -34,17 +32,30 @@ const Books = ({ book, books,  availableBook,
             <p>Sale Price: ${resalePrice}</p>
             <p>Original Price: ${originalPrice}</p>
             <p>Used:{useDuration} Months</p>
-            <p>Seller:{seller}</p>
+            <div className="flex justify-start items-center ml-0">
+              <p className="flex items-center ">Seller: {seller} {book?.gotVerified && (
+                  <FaRegCheckCircle className="text-blue-500 mx-2 text-xl font-bold"></FaRegCheckCircle>
+                )}{" "}
+               
+               
+              </p>
+            </div>
+
             <p>Location:{location}</p>
           </div>
-         {
-          isBuyer &&  <div className="card-actions justify-end">
-          <label onClick = {()=> setAvailableBook(book)} htmlFor="my-modal-3" className="btn bg-green-500 border-none">Book Now</label>  
-        </div>
-         }
+          {book?.gotVerified && isBuyer && (
+            <div className="card-actions justify-end">
+              <label
+                onClick={() => setAvailableBook(book)}
+                htmlFor="my-modal-3"
+                className="btn bg-green-500 border-none"
+              >
+                Book Now
+              </label>
+            </div>
+          )}
         </div>
       </div>
-      
     </div>
   );
 };
