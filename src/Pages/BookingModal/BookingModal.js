@@ -49,10 +49,10 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
       <div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
         <div className="modal" id="my-modal-3">
-        <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute left-[790px] top-12 z-10">✕</label>
+        <label htmlFor="my-modal-3" className="btn btn-sm btn-circle  absolute lg:left-[790px] sm: right-[100px] top-12 z-10">✕</label>
           <form onSubmit={handleSubmit}>
             <div className="modal-box">
-              <h2 className="text-xl text-green-600 text-center">
+              <h2 className="text-xl text-green-600 text-center mt-6">
                 Give Your Information and Book Now!
               </h2>
               <div className="w-[300px]  mx-auto">

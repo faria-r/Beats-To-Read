@@ -1,5 +1,4 @@
 import React from "react";
-import bg from "../../../assets/decor-flatlay-from-above-house-plant.jpg";
 import author from "../../../assets/best-seller-author.webp";
 import one from "../../../assets/download.jpg";
 import two from "../../../assets/one.jpg";
@@ -8,14 +7,14 @@ import four from "../../../assets/third.jpg";
 
 const BestSeller = () => {
   return (
-    <div className="h-[550px]">
-      <div className="hero w-full bg-base-200">
-        <div className="hero-content flex-col lg:flex-row w-full h-full">
+    <div className="h-auto">
+      <div className="hero max-w-screen overflow-hidden bg-green-200">
+        <div className="hero-content flex-col-reverse lg:flex-row w-full h-full">
           <div className="w-1/2">
             <img
               src={author}
               alt=""
-              className="w-3/4  h-[450px] rounded-lg shadow-2xl"
+              className="lg:w-3/4 w-full  h-[450px] rounded-lg shadow-2xl"
             />
           </div>
           <div className="bg-base-200  grid grid-cols-2  h-[550px] p-3 rounded-lg ">

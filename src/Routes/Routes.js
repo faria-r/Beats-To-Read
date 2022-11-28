@@ -7,9 +7,11 @@ import AllSeller from "../Pages/DashBoardLayot/AllSeller/AllSeller";
 import Addproduct from "../Pages/DashBoardLayot/DashboardLayout/AddProduct/Addproduct";
 import DashboardLayout from "../Pages/DashBoardLayot/DashboardLayout/DashboardLayout";
 import Myorders from "../Pages/DashBoardLayot/DashboardLayout/Myorders/Myorders";
+import DashBoardPage from "../Pages/DashBoardLayot/DashboardPage/DashBoardPage";
 import MyProduct from "../Pages/DashBoardLayot/MyProduct/MyProduct";
 import Payment from "../Pages/DashBoardLayot/Payment/Payment";
 import DisplayError from "../Pages/DisplayError/DisplayError";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/register/Register";
@@ -55,18 +57,19 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Privateroutes><DashboardLayout></DashboardLayout></Privateroutes>,
+    errorElement:<DisplayError></DisplayError>,
     children: [
+      {
+        path: "/dashboard",
+        element: <DashBoardPage></DashBoardPage>,
+      },
       {
         path: "/dashboard/myorders",
         element: <Myorders></Myorders>,
       },
       {
         path: "/dashboard/allsellers",
-        element: (
-          <AdminRoute>
-            <AllSeller></AllSeller>
-          </AdminRoute>
-        ),
+        element:<AdminRoute><AllSeller></AllSeller></AdminRoute>,
       },
       {
         path: "/dashboard/allbuyers",
@@ -100,5 +103,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+path:'*',
+element:<ErrorPage></ErrorPage>,
+errorElement:<DisplayError></DisplayError>
+  }
 ]);
 export default router;

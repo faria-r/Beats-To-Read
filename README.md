@@ -24,7 +24,7 @@ Live Website [Beat's To Read](https://beats-to-read.web.app/).
 - CSS
 - Firebase
 
-adminEmail: <ayesha@g.com>
-adminPassword: <123456>
+#### adminEmail: <ayesha@g.com>
+#### adminPassword: <123456>
 
 

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="w-3/4 mx-auto">
-      <div className="navbar bg-base-100">
+    <div className="w-full mx-auto bg-base-200">
+      <div className="navbar bg-base-200">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -33,16 +33,19 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              <Link to="/blog" className=" text-green-600 font-semibold text-xl">
+              <Link
+                to="/blog"
+                className=" text-green-600 font-semibold text-xl"
+              >
                 Blog
               </Link>
             </ul>
           </div>
-         <div className="w-64">
-         <Link className=" normal-case text-2xl lg:text-4xl text-green-600 font-bold">
-            Beats To Read
-          </Link>
-         </div>
+          <div className="w-64">
+            <Link className=" normal-case text-2xl lg:text-4xl text-green-600 font-bold">
+              Beats To Read
+            </Link>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -54,24 +57,27 @@ const Navbar = () => {
             </Link>
           </ul>
         </div>
-        <label htmlFor="dashboard-drawer" tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </label>
+        <label
+          htmlFor="dashboard-drawer"
+          tabIndex={0}
+          className="btn btn-ghost ml-36 lg:hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />
+          </svg>
+        </label>
       </div>
-     
     </div>
   );
 };

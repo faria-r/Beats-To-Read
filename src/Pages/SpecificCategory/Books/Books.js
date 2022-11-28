@@ -19,11 +19,11 @@ const Books = ({ book, books, availableBook, setAvailableBook }) => {
   } = book;
 
   return (
-    <div className="my-8 rounded-lg p-4 shadow-2xl">
-      <div className="card lg:card-side bg-base-100 shadow-xl">
-        <div className="w-1/2">
+    <div className="my-8 rounded-lg p-4">
+      <div className="card lg:card-side bg-green-400 shadow-xl lg:h-[380px]">
+        <div className="lg:w-1/2">
           <figure>
-            <img src={image} alt="Album" className="h-[450px]" />
+            <img src={image} alt="Album" className="h-[250px] my-12 rounded lg:w-full p-2" />
           </figure>
         </div>
         <div className="card-body">
@@ -32,12 +32,10 @@ const Books = ({ book, books, availableBook, setAvailableBook }) => {
             <p>Sale Price: ${resalePrice}</p>
             <p>Original Price: ${originalPrice}</p>
             <p>Used:{useDuration} Months</p>
-            <div className="flex justify-start items-center ml-0">
+            <div className="">
               <p className="flex items-center ">Seller: {seller} {book?.gotVerified && (
                   <FaRegCheckCircle className="text-blue-500 mx-2 text-xl font-bold"></FaRegCheckCircle>
-                )}{" "}
-               
-               
+                )} 
               </p>
             </div>
 
@@ -48,7 +46,7 @@ const Books = ({ book, books, availableBook, setAvailableBook }) => {
               <label
                 onClick={() => setAvailableBook(book)}
                 htmlFor="my-modal-3"
-                className="btn bg-green-500 border-none"
+                className="btn bg-green-600 border-none"
               >
                 Book Now
               </label>
