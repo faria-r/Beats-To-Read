@@ -5,7 +5,7 @@ const AllBuyers = () => {
 
 const [buyers,setBuyers]  =useState([])
 
-const url = 'http://localhost:5000/buyers'
+const url = 'https://assignment-twelve-server-psi.vercel.app/buyers'
     const getBuyers = () =>{
         axios.get(url)
         .then(res =>{
@@ -18,7 +18,7 @@ const url = 'http://localhost:5000/buyers'
     },[]);
 
     const handleDelete = (id) =>{
-       fetch(`http://localhost:5000/users/${id}`,{
+       fetch(`https://assignment-twelve-server-psi.vercel.app/users/${id}`,{
         method:'DELETE',
         headers:{
             'content-type':'application/json'

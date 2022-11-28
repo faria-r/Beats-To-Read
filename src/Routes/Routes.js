@@ -40,7 +40,7 @@ const router = createBrowserRouter([
           </Privateroutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/categories/${params.name}`),
+          fetch(`https://assignment-twelve-server-psi.vercel.app/categories/${params.name}`),
       },
       {
         path: "/login",
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: <Privateroutes><DashboardLayout></DashboardLayout></Privateroutes>,
     children: [
       {
         path: "/dashboard/myorders",
@@ -96,7 +96,7 @@ const router = createBrowserRouter([
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/order/${params.id}`),
+          fetch(`https://assignment-twelve-server-psi.vercel.app/order/${params.id}`),
       },
     ],
   },

@@ -37,7 +37,7 @@ const Register = () => {
   const storeUsers = (name, email, role) => {
     const user = { name, email, role };
 
-    fetch("http://localhost:5000/users", {
+    fetch("https://assignment-twelve-server-psi.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

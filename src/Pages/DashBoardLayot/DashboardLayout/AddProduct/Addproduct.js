@@ -43,7 +43,7 @@ const Addproduct = () => {
             date: data.date,
           };
           console.log(productData);
-          fetch("http://localhost:5000/books", {
+          fetch("https://assignment-twelve-server-psi.vercel.app/books", {
             method: "POST",
             headers: {
               "content-type": "application/json",

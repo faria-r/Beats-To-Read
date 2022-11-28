@@ -1,7 +1,7 @@
 # Beat's To Read
 #### A website where you can buy or resell your used books.
 
-Live Website [Beat's To Read](https://farias-cooking-luxury.web.app/).
+Live Website [Beat's To Read](https://beats-to-read.web.app/).
 
 ## Functionality You Can Ineterect With This Website:
 - User can Buy any Book from a verified seller
@@ -24,5 +24,7 @@ Live Website [Beat's To Read](https://farias-cooking-luxury.web.app/).
 - CSS
 - Firebase
 
+adminEmail: <ayesha@g.com>
+adminPassword: <123456>
 
 

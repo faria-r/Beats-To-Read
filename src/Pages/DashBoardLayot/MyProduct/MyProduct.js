@@ -6,7 +6,7 @@ const MyProduct = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
   const Swal = require("sweetalert2");
-  const url = `http://localhost:5000/myproducts?email=${user?.email}`;
+  const url = `https://assignment-twelve-server-psi.vercel.app/myproducts?email=${user?.email}`;
   const getProducts = () => {
     axios.get(url).then((res) => {
       const myProducts = res.data;
@@ -20,7 +20,7 @@ const MyProduct = () => {
   }, [user?.email]);
   const handleDelete = (id) => {
     console.log(id, "clicked");
-    fetch(`http://localhost:5000/myproducts/${id}`, {
+    fetch(`https://assignment-twelve-server-psi.vercel.app/myproducts/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -42,7 +42,7 @@ const handleAdvertise = (id,image,name) =>{
     image:image,
     name,
   };
-  fetch('http://localhost:5000/advertise',{
+  fetch('https://assignment-twelve-server-psi.vercel.app/advertise',{
     method:'POST',
     headers:{
       'content-type':'application/json'

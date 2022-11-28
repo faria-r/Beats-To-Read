@@ -28,7 +28,7 @@ const BookingModal = ({ book, availableBook, setAvailableBook }) => {
       image
     };
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://assignment-twelve-server-psi.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

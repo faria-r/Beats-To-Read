@@ -6,7 +6,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 const AllSeller = () => {
   const [sellers, setSellers] = useState([]);
 
-  const url = "http://localhost:5000/sellers";
+  const url = "https://assignment-twelve-server-psi.vercel.app/sellers";
   const getSellers = () => {
     axios.get(url).then((res) => {
       const AllSeller = res.data;
@@ -18,7 +18,7 @@ const AllSeller = () => {
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://assignment-twelve-server-psi.vercel.app/users/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -37,7 +37,7 @@ const AllSeller = () => {
   const handleVerify = (id,email) => {
     console.log(id);
     const userId = { id,email };
-    fetch(`http://localhost:5000/verify/${id}`, {
+    fetch(`https://assignment-twelve-server-psi.vercel.app/verify/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -50,7 +50,7 @@ const AllSeller = () => {
         if (data.modifiedCount > 0) {
             // const remainingUnverified = sellers.filter((seller) => seller._id !== id);
           setSellers(sellers);
-          fetch(`http://localhost:5000/books/${email}`,{
+          fetch(`https://assignment-twelve-server-psi.vercel.app/books/${email}`,{
             method:'PUT',
             headers:{
               'content-type':'application/json'
