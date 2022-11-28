@@ -50,7 +50,6 @@ const AllSeller = () => {
         console.log(data);
         if (data.modifiedCount > 0) {
             // const remainingUnverified = sellers.filter((seller) => seller._id !== id);
-          setSellers(sellers);
           fetch(`https://assignment-twelve-server-psi.vercel.app/books/${email}`,{
             method:'PUT',
             headers:{
@@ -60,7 +59,8 @@ const AllSeller = () => {
           })
           .then(res => res.json())
           .then(data => {
-            console.log(data)
+            console.log(data);
+            setSellers(AllSeller);
           })
         }
       });

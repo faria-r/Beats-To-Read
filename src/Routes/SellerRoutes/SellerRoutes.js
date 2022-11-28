@@ -5,7 +5,7 @@ import useSeller from '../../customHooks/UseSellers/useSeller';
 
 
 const SellerRoutes = ({children}) => {
-    const {user,loading,logout} = useContext(AuthContext);
+    const {user,loading} = useContext(AuthContext);
     const [isSeller,sellerLoading] = useSeller(user?.email)
     const location = useLocation();
     
@@ -18,16 +18,6 @@ const SellerRoutes = ({children}) => {
     
  
    return <Navigate to='/login'state={{from:location}} replace></Navigate>
-//    else{
-//     return (
-//         logout()
-//         .then(()=>{
-            
-//          })
-//         .catch(e => console.log(e.message))
-//            );
-          
-//    }
    
 };
 
