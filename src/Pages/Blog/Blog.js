@@ -9,7 +9,7 @@ const Blog = () => {
         <div className="collapse-title bg-green-500 text-primary-content peer-checked:bg-green-600 peer-checked:text-secondary-content flex  lg:justify-between">
           <p>
             What are the different ways to manage a state in a React
-            application?
+            application??
           </p>
           <p className="text-2xl font-bold">+</p>
         </div>
