@@ -11,7 +11,7 @@ const SpecificCategory = () => {
     return <progress className="progress w-56"></progress>
   }
   return (
-    <div className="bg-base-200">
+    <div className="">
       <div className="grid grid-cols-1  gap-2 w-3/4 mx-auto my-8">
       {books.map((book) => (
         <Books key={book._id} book={book} books={books}   availableBook={availableBook}

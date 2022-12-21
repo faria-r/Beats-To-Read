@@ -17,7 +17,7 @@ const DashboardLayout = () => {
     <div>
       <Navbar></Navbar>
       <Header></Header>
-      <div className="drawer drawer-mobile bg-green-400 rounded-xl">
+      <div className="drawer drawer-mobile shadow-inner-2xl shadow-2xl shadow-green-600 border-green-600 mx-8rounded-xl">
         <input
           id="dashboard-drawer"
           type="checkbox"

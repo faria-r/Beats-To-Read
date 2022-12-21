@@ -50,8 +50,8 @@ const Register = () => {
       });
   };
   return (
-    <div className="h-[800px]  flex justify-center mt-16 ">
-      <div className="w-96 h-[400px] border rounded-2xl bg-green-300  px-7">
+    <div className="h-auto  flex justify-center my-16 ">
+      <div className="w-96 py-6 h-auto border rounded-2xl bg-green-300  px-7">
         <h2 className="text-xl text-center">Register</h2>
         <form onSubmit={handleSubmit(handelregister)}>
           <div className="form-control w-full max-w-xs">

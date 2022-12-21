@@ -64,8 +64,8 @@ const Login = () => {
       .catch((e) => console.error(e));
   };
   return (
-    <div className="h-[800px]  flex justify-center mt-16">
-      <div className="w-96 h-[500px] py-3 border rounded-2xl bg-green-300  px-7">
+    <div className="h-[700px] flex justify-center mt-8">
+      <div className="w-96 h-[500px] py-3 border rounded-2xl bg-green-300 px-7">
         <h2 className="text-xl text-center">Login</h2>
         <form onSubmit={handleSubmit(handelLogin)}>
           <div className="form-control w-full max-w-xs">
