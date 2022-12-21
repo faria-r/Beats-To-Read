@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";
 import useBuyers from "../../../customHooks/useBuyers/useBuyers";
-import { FaRegCheckCircle } from "react-icons/fa";
+import { FaRegCheckCircle, FaStar } from "react-icons/fa";
 
 const Books = ({ book, books, availableBook, setAvailableBook }) => {
   const { user } = useContext(AuthContext);
@@ -19,11 +19,11 @@ const Books = ({ book, books, availableBook, setAvailableBook }) => {
   } = book;
 
   return (
-    <div className="my-8 rounded-lg p-4">
-      <div className="card lg:card-side bg-green-400 shadow-xl lg:h-[380px]">
+    <div className="my-8 rounded-lg px-4">
+      <div className="card lg:card-side shadow-xl shadow-green-500 lg:h-[380px]">
         <div className="lg:w-1/2">
           <figure>
-            <img src={image} alt="Album" className="h-[250px] my-12 rounded lg:w-full p-2" />
+            <img src={image} alt="Album" className="hover:-skew-x-12 hover:scale-50  h-[350px] rounded-2xl w-[450px] scale-75 -rotate-12 p-4" />
           </figure>
         </div>
         <div className="card-body">
@@ -31,15 +31,19 @@ const Books = ({ book, books, availableBook, setAvailableBook }) => {
           <div className="mr-16 text-start text-xl font-semibold">
             <p>Sale Price: ${resalePrice}</p>
             <p>Original Price: ${originalPrice}</p>
-            <p>Used:{useDuration} Months</p>
+            <p>Used:{useDuration}</p>
             <div className="">
               <p className="flex items-center ">Seller: {seller} {book?.gotVerified && (
-                  <FaRegCheckCircle className="text-blue-500 mx-2 text-xl font-bold"></FaRegCheckCircle>
+                  <FaRegCheckCircle className="text-blue-500  text-xl font-bold"></FaRegCheckCircle>
                 )} 
               </p>
             </div>
 
             <p>Location:{location}</p>
+            <p className="flex items-center">Ratings:<span className="flex text-green-600"><FaStar></FaStar>
+            <FaStar></FaStar><FaStar></FaStar><FaStar></FaStar><FaStar></FaStar>
+            
+            </span></p>
           </div>
           {book?.gotVerified && isBuyer && (
             <div className="card-actions justify-end">
@@ -48,7 +52,7 @@ const Books = ({ book, books, availableBook, setAvailableBook }) => {
                 htmlFor="my-modal-3"
                 className="btn bg-green-600 border-none"
               >
-                Book Now
+                Add To Cart
               </label>
             </div>
           )}

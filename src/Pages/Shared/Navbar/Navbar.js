@@ -1,4 +1,5 @@
 import React from "react";
+import { FaCartPlus, FaRegArrowAltCircleDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -39,6 +40,8 @@ const Navbar = () => {
               >
                 Blog
               </Link>
+              <li> <FaCartPlus className="text-green-600"></FaCartPlus> ji</li>
+             
             </ul>
           </div>
           <div className="w-64">
@@ -55,6 +58,8 @@ const Navbar = () => {
             <Link to="/blog" className="text-green-600 font-semibold text-xl">
               Blog
             </Link>
+            <Link> <FaCartPlus className="text-3xl font-normal text-green-600 ml-6"></FaCartPlus><div className="badge badge-sm relative -top-9 left-9 bg-green-600 h-4 w-4 rounded-50">4</div> </Link>
+             
           </ul>
         </div>
         <label
