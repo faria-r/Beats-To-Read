@@ -12,7 +12,7 @@ const {data: orders = [] } = useQuery({
         const res = await fetch(`https://assignment-twelve-server-psi.vercel.app/orders?email=${user?.email}`)
         const data = res.json();
         return data;
-    }
+    } 
 })
 
     return (

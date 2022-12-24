@@ -1,8 +1,20 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
 import { FaCartPlus, FaRegArrowAltCircleDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 const Navbar = () => {
+  const {user} = useContext(AuthContext);
+  const {data: orders=[]} = useQuery({
+    queryKey:['orders'],
+    queryFn:async ()=>{
+      const res = await fetch(`https://assignment-twelve-server-psi.vercel.app/orders?email=${user?.email}`)
+      const data = res.json();
+      return data;
+    }
+
+  })
   return (
     <div className="w-full mx-auto bg-base-200">
       <div className="navbar bg-base-200">
@@ -40,8 +52,7 @@ const Navbar = () => {
               >
                 Blog
               </Link>
-              <li> <FaCartPlus className="text-green-600"></FaCartPlus> ji</li>
-             
+              <Link> <FaCartPlus className="text-3xl font-normal text-green-600 ml-6"></FaCartPlus><div className="badge badge-sm relative -top-9  bg-green-600 h-4 w-4 rounded-50">{orders?.length}</div> </Link>   
             </ul>
           </div>
           <div className="w-64">
@@ -58,7 +69,7 @@ const Navbar = () => {
             <Link to="/blog" className="text-green-600 font-semibold text-xl">
               Blog
             </Link>
-            <Link> <FaCartPlus className="text-3xl font-normal text-green-600 ml-6"></FaCartPlus><div className="badge badge-sm relative -top-9 left-9 bg-green-600 h-4 w-4 rounded-50">4</div> </Link>
+            <Link> <FaCartPlus className="text-3xl font-normal text-green-600 ml-6"></FaCartPlus><div className="badge badge-sm relative -top-9 left-9 bg-green-600 h-4 w-4 rounded-50">{orders?.length}</div> </Link>
              
           </ul>
         </div>
