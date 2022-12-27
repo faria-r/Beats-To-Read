@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
-import { FaCartPlus, FaRegArrowAltCircleDown } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 
@@ -16,8 +16,8 @@ const Navbar = () => {
 
   })
   return (
-    <div className="w-full mx-auto bg-base-200">
-      <div className="navbar bg-base-200">
+    <div className="w-full mx-auto">
+      <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

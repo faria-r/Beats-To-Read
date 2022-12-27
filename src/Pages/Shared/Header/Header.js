@@ -53,7 +53,7 @@ const Header = () => {
           placeholder="Type here"
           className="input input-bordered input-success w-full max-w-xs"
         />
-        <button className="btn bg-green-600  border-none w-32 ml-2">
+        <button className="btn bg-green-600  border-none w-32 -ml-2">
           Search
         </button>
       </div>
