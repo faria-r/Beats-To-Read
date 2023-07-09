@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
+import Header from "../Header/Header";
 
 const Navbar = () => {
   const {user} = useContext(AuthContext);
@@ -16,7 +17,7 @@ const Navbar = () => {
 
   })
   return (
-    <div className="w-full mx-auto">
+    <div className="w-full mx-auto bg-green-300 p-4">
       <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -57,7 +58,7 @@ const Navbar = () => {
           </div>
           <div className="w-64">
             <Link className=" normal-case text-2xl lg:text-4xl text-green-600 font-bold">
-              Beats To Read
+              Book Bin
             </Link>
           </div>
         </div>
@@ -69,7 +70,7 @@ const Navbar = () => {
             <Link to="/blog" className="text-green-600 font-semibold text-xl">
               Blog
             </Link>
-            <Link> <FaCartPlus className="text-3xl font-normal text-green-600 ml-6"></FaCartPlus><div className="badge badge-sm relative -top-9 left-9 bg-green-600 h-4 w-4 rounded-50">{orders?.length}</div> </Link>
+            <Link> <FaCartPlus className="text-3xl font-normal text-green-800 ml-6"></FaCartPlus><div className="badge badge-sm relative -top-9 left-9 bg-green-600 text-white h-4 w-4 rounded-50 border-white">{orders?.length}</div> </Link>
              
           </ul>
         </div>

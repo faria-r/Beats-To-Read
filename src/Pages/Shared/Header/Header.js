@@ -27,8 +27,8 @@ const Header = () => {
       <div className="w-64 border border-green-600 py-3 px-8 my-4">
         <div className="dropdown ">
           <label tabIndex={0} className=" text-xl font-bold flex  items-center">
-            <FaBars className="mr-4"></FaBars>
-            <p> Categories</p>
+            <FaBars className="mr-4 text-green-600"></FaBars>
+            <p className="text-green-600"> Categories</p>
           </label>
           <ul
             tabIndex={0}
@@ -51,9 +51,9 @@ const Header = () => {
         <input
           type="text"
           placeholder="Type here"
-          className="input input-bordered input-success w-full max-w-xs"
+          className="input  border-green-600 rounded-none w-full max-w-xs"
         />
-        <button className="btn bg-green-600  border-none w-32 -ml-2">
+        <button className="btn bg-green-600  border-none rounded-none w-32 -ml-2">
           Search
         </button>
       </div>

@@ -34,7 +34,7 @@ const Footer = () => {
       </label> 
       <div className="relative">
         <input type="text" defaultValue={user?.email} readOnly className="input input-bordered w-full pr-16" /> 
-        <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
+        <button className="btn bg-green-600 absolute top-0 right-0 rounded-l-none">Subscribe</button>
       </div>
     </div>
   </div>

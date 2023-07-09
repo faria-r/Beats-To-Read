@@ -3,12 +3,14 @@ import Ads from "./Advertise/Ads";
 import BestSeller from "./BestSellerBooks/BestSeller";
 import CategoryContainer from "./CategoryContainer/CategoryContainer";
 import Slider from "./Slider/Slider";
+import SwipSlide from "./Slider/SwipSlide";
 
 const Home = () => {
   return (
     <div>
       <div className="my-6">
-        <Slider></Slider>
+        {/* <Slider></Slider> */}
+        <SwipSlide></SwipSlide>
       </div>
       <div>
         <CategoryContainer></CategoryContainer>
