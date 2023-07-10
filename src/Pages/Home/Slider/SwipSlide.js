@@ -33,6 +33,7 @@ export default function SwipSlide() {
             src="https://i.pinimg.com/736x/2d/94/91/2d94919583ea7e120aad901daa2c3e9e.jpg"
             className="w-full"
           /></SwiperSlide>
+           <SwiperSlide><img src='https://learn.canva.com/wp-content/uploads/2015/03/40-books-unlock-creativity-start-lifes-best-work.jpg'></img></SwiperSlide>
         <SwiperSlide> <img
             alt=""
             src="   https://www.pngkit.com/png/detail/392-3923347_harry-potter-us-hardcover-editions-harry-potter-book.png"
@@ -58,7 +59,7 @@ export default function SwipSlide() {
             className="w-full "
           />
         </SwiperSlide>
-        <SwiperSlide><img src='https://learn.canva.com/wp-content/uploads/2015/03/40-books-unlock-creativity-start-lifes-best-work.jpg'></img></SwiperSlide>
+       
         <SwiperSlide><img
             alt=""
             src="https://i.ibb.co/x2qj2nS/il-794x-N-2883876270-mn5h.webp"
