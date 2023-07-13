@@ -24,7 +24,7 @@ const Header = () => {
   };
   return (
     <div className="w-3/4 mx-auto flex justify-around items-center">
-      <div className="w-64 border border-green-600 py-3 px-8 my-4">
+      <div className="w-64 border border-green-600 py-3 px-8 my-2">
         <div className="dropdown ">
           <label tabIndex={0} className=" text-xl font-bold flex  items-center">
             <FaBars className="mr-4 text-green-600"></FaBars>
@@ -47,6 +47,7 @@ const Header = () => {
           </ul>
         </div>
       </div>
+      <form>
       <div className=" hidden lg:flex items-center">
         <input
           type="text"
@@ -57,6 +58,8 @@ const Header = () => {
           Search
         </button>
       </div>
+      </form>
+      
 
       <div>
         {user && user?.email ? (

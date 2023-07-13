@@ -2,15 +2,17 @@ import React, {  } from "react";
 import Ads from "./Advertise/Ads";
 import BestSeller from "./BestSellerBooks/BestSeller";
 import CategoryContainer from "./CategoryContainer/CategoryContainer";
-import Slider from "./Slider/Slider";
 import SwipSlide from "./Slider/SwipSlide";
+import Features from "../Features/Features";
 
 const Home = () => {
   return (
     <div>
-      <div className="my-6">
-        {/* <Slider></Slider> */}
+      <div className="mb-6">
         <SwipSlide></SwipSlide>
+      </div>
+      <div>
+        <Features></Features>
       </div>
       <div>
         <CategoryContainer></CategoryContainer>

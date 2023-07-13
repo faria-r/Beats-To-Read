@@ -14,7 +14,7 @@ import { FreeMode, Pagination } from 'swiper/modules';
 
 export default function SwipSlide() {
   return (
-    <>
+    <div>
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -73,6 +73,6 @@ export default function SwipSlide() {
        
        
       </Swiper>
-    </>
+    </div>
   );
 }
