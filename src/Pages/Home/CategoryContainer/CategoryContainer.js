@@ -14,7 +14,7 @@ const CategoryContainer = () => {
     return (
         <div>
             
-            <div className='w-[50vw] my-8 grid grid-cols-1 lg:grid-cols-3 gap-2 mx-auto'>
+            <div className='w-[50vw]  my-8 grid grid-cols-1 lg:grid-cols-3 gap-2 mx-auto'>
             {
                 categories.map(category => <CategoryCard
                 key={category._id}

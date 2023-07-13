@@ -17,7 +17,7 @@ const Navbar = () => {
 
   })
   return (
-    <div className="w-full mx-auto bg-green-300 p-4">
+    <div className="w-full mx-auto bg-green-300 p-2">
       <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -53,6 +53,12 @@ const Navbar = () => {
               >
                 Blog
               </Link>
+              <Link
+                to="/"
+                className=" text-green-600 font-semibold text-xl"
+              >
+                Contact
+              </Link>
               <Link> <FaCartPlus className="text-3xl font-normal text-green-600 ml-6"></FaCartPlus><div className="badge badge-sm relative -top-9  bg-green-600 h-4 w-4 rounded-50">{orders?.length}</div> </Link>   
             </ul>
           </div>
@@ -62,13 +68,16 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal p-0">
             <Link to="/" className="mr-4 text-green-600 font-semibold text-xl">
               Home
             </Link>
-            <Link to="/blog" className="text-green-600 font-semibold text-xl">
+            <Link to="/blog" className="text-green-600 font-semibold text-xl mr-2">
               Blog
+            </Link>
+            <Link to="/" className="text-green-600 font-semibold text-xl">
+              Contact
             </Link>
             <Link> <FaCartPlus className="text-3xl font-normal text-green-800 ml-6"></FaCartPlus><div className="badge badge-sm relative -top-9 left-9 bg-green-600 text-white h-4 w-4 rounded-50 border-white">{orders?.length}</div> </Link>
              
