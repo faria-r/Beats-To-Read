@@ -4,6 +4,7 @@ import BestSeller from "./BestSellerBooks/BestSeller";
 import CategoryContainer from "./CategoryContainer/CategoryContainer";
 import SwipSlide from "./Slider/SwipSlide";
 import Features from "../Features/Features";
+import CategoryTab from "../CategoryTabs/CategoryTab";
 
 const Home = () => {
   return (
@@ -16,6 +17,9 @@ const Home = () => {
       </div>
       <div>
         <CategoryContainer></CategoryContainer>
+      </div>
+      <div>
+        <CategoryTab></CategoryTab>
       </div>
       <div className="w-3/4 mx-auto">
         <Ads></Ads>
